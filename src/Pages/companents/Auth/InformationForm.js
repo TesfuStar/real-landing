@@ -135,7 +135,7 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
   return (
     <div className="">
       <div className="w-full">
-        <h1 className="text-center  text-2xl w-full  text-white font-bold capitalize">
+        <h1 className="text-center  text-2xl w-full  text-slate-800 font-bold capitalize">
           real Estate form
         </h1>
         <Formik
@@ -153,13 +153,13 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
             <Form className="flex flex-col items-start space-y-2 w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
                 <div className="w-full flex flex-col items-start space-y-1">
-                  <span className="font-medium text-sm text-white">
+                  <span className="font-medium text-sm text-slate-800">
                     Real Estate Name
                   </span>
                   <Field
                     as={"input"}
                     name="name"
-                    className={`rounded-md w-full h-[42px] focus:outline-none  pl-3 text-white bg-[#404657]/10 ${
+                    className={`rounded-md w-full h-[42px] focus:outline-none  pl-3 text-slate-800 bg-[#404657]/10 ${
                       errors.name && touched.name
                         ? "border-2 border-red-600"
                         : "border-2 border-gray-200"
@@ -170,13 +170,13 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
                   ) : null}
                 </div>
                 <div className="w-full flex flex-col items-start space-y-1">
-                  <span className="font-medium text-sm text-white">
+                  <span className="font-medium text-sm text-slate-800">
                     Office Phone No
                   </span>
                   <Field
                     name="phone"
                     as={"Input"}
-                    className={`rounded-md w-full h-[42px] focus:outline-none  pl-3 text-white bg-[#404657]/10 ${
+                    className={`rounded-md w-full h-[42px] focus:outline-none  pl-3 text-slate-800 bg-[#404657]/10 ${
                       errors.phone && touched.phone
                         ? "border-2 border-red-600"
                         : "border-2 border-gray-200"
@@ -189,13 +189,13 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
               </div>
               {/* email */}
               <div className="w-full flex flex-col items-start space-y-1">
-                <span className="font-medium text-white text-sm ">
+                <span className="font-medium text-slate-800 text-sm ">
                   Real Estate Email
                 </span>
                 <Field
                   as={"Input"}
                   name="email"
-                  className={`rounded-md w-full h-[42px] focus:outline-none pl-3 text-white bg-[#404657]/10 ${
+                  className={`rounded-md w-full h-[42px] focus:outline-none pl-3 text-slate-800 bg-[#404657]/10 ${
                     errors.email && touched.email
                       ? "border-2 border-red-600"
                       : "border-2 border-gray-200"
@@ -208,17 +208,17 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
 
               {/* logo */}
               <div className="w-full flex flex-col items-start space-y-1">
-                <span className="font-medium text-white text-sm ">
+                <span className="font-medium text-slate-800 text-sm ">
                   Company Logo
                 </span>
                 <div
                   className="bg-transparent p-10 w-full  items-center 
-                 text-center flex flex-col border-2 border-white border-dashed rounded-md"
+                 text-center flex flex-col border-2 border-slate-800 border-dashed rounded-md"
                 >
                   <label className="w-full text-center flex flex-col items-center justify-center">
-                    <p className="text-white">click to select image</p>
+                    <p className="text-slate-800">click to select image</p>
                     <FaRegImages size={70} className="text-dark-gray" />
-                    <p className="text-white">
+                    <p className="text-slate-800">
                       supported image types png, jpg, jpeg
                     </p>
                     <input
@@ -236,14 +236,14 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
               </div>
               {/* address */}
               <div className="w-full flex flex-col items-start space-y-1">
-                <span className="font-medium text-sm text-white">
+                <span className="font-medium text-sm text-slate-800">
                   address(in detail)
                 </span>
                 <Field
                   col={20}
                   as={"textarea"}
                   name="address"
-                  className={`rounded-md w-full h-28 focus:outline-none  pl-3 text-white bg-[#404657]/10 ${
+                  className={`rounded-md w-full h-28 focus:outline-none  pl-3 text-slate-800 bg-[#404657]/10 ${
                     errors.address && touched.address
                       ? "border-2 border-red-600"
                       : "border-2 border-gray-200"
@@ -255,13 +255,13 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
               </div>
               {/* comment */}
               <div className="w-full flex flex-col items-start space-y-1">
-                <span className="font-medium text-sm text-white">
+                <span className="font-medium text-sm text-slate-800">
                   Comment(any)
                 </span>
                 <Field
                   as={"textarea"}
                   name="comment"
-                  className={`rounded-md w-full pl-3 text-white min-h-28 h-28 focus:outline-none   bg-[#404657]/10 ${
+                  className={`rounded-md w-full pl-3 text-slate-800 min-h-28 h-28 focus:outline-none   bg-[#404657]/10 ${
                     errors.comment && touched.comment
                       ? "border-2 border-red-600"
                       : "border-2 border-gray-200"
@@ -272,9 +272,11 @@ const InformationForm = ({ isLoading, setIsLoading }) => {
                 ) : null}
               </div>
               <button
+              disabled={createCompanyMutation.isLoading }
                 type="submit"
-                className="w-fit px-14 self-center p-[6px]  rounded-md flex hover:opacity-80 items-center justify-center text-white font-medium
-              bg-white/20 capitalize border border-white"
+                className="w-fit px-14 self-center p-[6px]  rounded-md 
+                flex hover:opacity-80 items-center justify-center text-white font-medium
+              bg-blue-bg capitalize "
               >
                 {createCompanyMutation.isLoading ? (
                   <ThreeDots

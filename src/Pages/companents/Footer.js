@@ -7,7 +7,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 const Footer = () => {
   return (
-    <div className="z-30 p-5">
+    <div className="z-30 p-5 bg-blue-bg">
       <div className="max-w-6xl  mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
         <div className="flex flex-col items-start space-y-3">
           <img
@@ -15,7 +15,7 @@ const Footer = () => {
             alt=""
             className="h-16 z-30"
           />
-          <p className="z-30 text-sm max-w-xs text-dark-gray">
+          <p className="z-30 text-sm max-w-xs text-white">
             Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
             ut labore et dolore magna aliqua. Quis facilisis.
           </p>
@@ -109,7 +109,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col items-start text-start">
                   <p className="font-medium text-gray-300">Email</p>
-                  <p className="text-sm text-gray-400">admin@gmail.com</p>
+                  <p className="text-sm text-white">admin@gmail.com</p>
                 </div>
               </div>
               {/* phone */}
@@ -117,20 +117,21 @@ const Footer = () => {
                 <BsTelephoneFill size={22} className="text-gray-100" />
                 <div className="flex flex-col items-start ">
                   <p className="font-medium text-gray-300">Phone</p>
-                  <p className="text-sm text-gray-400">+251944719460</p>
+                  <p className="text-sm text-white">+251944719460</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="z-30 flex items-center justify-center w-full md:items-start  md:justify-between flex-wrap border-t border-dark-gray py-2">
-        <p className="text-[13px] text-center  text-dark-gray">
-          copyright <span className="text-white">© Cargo</span> | All right
+      <div className="z-30 flex items-center justify-center w-full md:items-start 
+       md:justify-between flex-wrap border-t border-gray-300 py-2">
+        <p className="text-[13px] text-center  text-white">
+          copyright <span className="text-white">© Ethomes</span> | All right
           reserved
         </p>
-        <p className="text-[13px] text-dark-gray">
-          2022 <span className="text-white">© Jakteck </span>| All Rights
+        <p className="text-[13px] text-white">
+          2022 <span className="text-white">© ET technologies</span>| All Rights
           Reserved.
         </p>
       </div>

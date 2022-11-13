@@ -112,7 +112,7 @@ const HomePage = () => {
             optimization for your web app.
           </p>
           <button onClick={handleClick}
-          className="border-2 border-white rounded-sm p-2 px-10 font-semibold text-white
+          className="border-2 border-slate-800 rounded-sm p-2 px-10 font-semibold text-slate-800
           hover:bg-white cursor-pointer duration-500 hover:text-main-color hover:font-medium">
             Join Us
           </button>

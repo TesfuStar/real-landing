@@ -30,7 +30,7 @@ const RegisterModal = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-white blur-2xl bg-opacity-5" />
+            <div className="fixed inset-0 bg-black blur-2xl bg-opacity-25" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -45,23 +45,21 @@ const RegisterModal = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden 
-                rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2
+                rounded-2xl bg-[#fff] backdrop-blur-lg  py-6 px-2
                  md:px-6 text-left align-middle border border-white transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg text-center pb-3 font-medium leading-6 text-gray-200"
+                    className="text-lg text-center pb-3 font-medium leading-6 text-slate-800"
                   >
                     {isSignIn ? "Log In" : "Sign Up"}
                   </Dialog.Title>
                   <div
                     onClick={closeModal}
-                    className="absolute right-3 top-2 border-2 rounded-md border-[#fff] p-1 cursor-pointer"
+                    className="absolute right-3 top-2 border-2 rounded-md border-sky-600 p-1 cursor-pointer"
                   >
                     <FaTimes
                       size={15}
-                      style={{
-                        color:  "#fff",
-                      }}
+                     className="text-sky-600"
                     />
                   </div>
                   {isSignIn ? (

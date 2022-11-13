@@ -102,8 +102,8 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
     <>
       <div className="flex flex-col items-center space-y-2  w-full">
         <div className="w-full flex flex-col items-start space-y-1">
-          <div className="flex items-center     border rounded-md border-white w-full">
-            <span className="border-r-2 border-white text-white  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
+          <div className="flex items-center     border rounded-md border-slate-800 w-full">
+            <span className="border-r-2 border-slate-800 text-slate-800  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
               +251
             </span>
             <input
@@ -112,21 +112,21 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
               onChange={(event) => setPhone(event.target.value)}
               placeholder="900-00-00"
               name="phoneNo"
-              className="input w-full flex-grow h-[42px] pl-2 text-white  bg-transparent border-none focus:border-none focus:ring-0    focus:outline-none"
+              className="input w-full flex-grow h-[42px] pl-2 text-slate-800  bg-transparent border-none focus:border-none focus:ring-0    focus:outline-none"
             />
           </div>
           <p className="text-red-600 text-[10px]">{PhoneError}</p>
         </div>
         {/* password */}
         <div className="w-full flex flex-col items-start space-y-1">
-          <div className="flex items-center     border rounded-md border-white w-full">
+          <div className="flex items-center     border rounded-md border-slate-800 w-full">
             <input
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               type={showPassword ? "text" : "password"}
               placeholder="password"
               name="phoneNo"
-              className="w-full flex-grow h-[42px] pl-2  text-white bg-transparent border-none focus:border-none focus:ring-0  
+              className="w-full flex-grow h-[42px] pl-2  text-slate-800 bg-transparent border-none focus:border-none focus:ring-0  
         focus:outline-none"
               onKeyDown={handleSubmit}
             />
@@ -136,9 +136,9 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
         px-2 items-center justify-center "
             >
               {showPassword ? (
-                <AiFillEye size={23} className="text-white" />
+                <AiFillEye size={23} className="text-slate-800" />
               ) : (
-                <AiFillEyeInvisible size={23} className="text-white" />
+                <AiFillEyeInvisible size={23} className="text-slate-800" />
               )}
             </button>
           </div>
@@ -147,7 +147,7 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
           disabled={loginMutation.isLoading}
           onClick={LoginHandler}
           className="w-full p-2 rounded-md flex items-center justify-center text-white font-medium
-              bg-white/20 backdrop-blur-md hover:bg-white/10 border border-white capitalize"
+              bg-blue-bg backdrop-blur-md hover:bg-blue-bg/80 border border-white capitalize"
         >
           {loginMutation.isLoading ? (
             <ThreeDots
@@ -164,11 +164,11 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
             "Sign in"
           )}
         </button>
-        <p className="font-medium text-gray-300">
+        <p className="font-medium text-slate-800">
           Don't have account ?
           <span
             onClick={() => setIsSignIn(false)}
-            className="text-[#fff] cursor-pointer hover:opacity-80"
+            className="text-main-color cursor-pointer hover:opacity-80"
           >
             {" "}
             SIGN UP

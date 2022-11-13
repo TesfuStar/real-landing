@@ -52,6 +52,7 @@ const Navbar = () => {
         return;
       }
       if (profileData?.data?.data?.profile?.status === "Pending") {
+        
         setIsPendingOpen(true);
         return;
       }
@@ -64,6 +65,7 @@ const Navbar = () => {
 
     setIsOpen(true);
   };
+  console.log(profileData?.data?.data)
   useEffect(() => {
     const hideMenu = () => {
       if (window.innerWidth > 640 && isDrawerOpen) {

@@ -29,7 +29,7 @@ const PendingModal = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-white blur-2xl bg-opacity-5" />
+            <div className="fixed inset-0 bg-black blur-2xl bg-opacity-25" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -45,29 +45,29 @@ const PendingModal = () => {
               >
                 <Dialog.Panel
                   className="w-full max-w-xl transform overflow-hidden 
-              rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2 md:px-6 text-left 
+              rounded-2xl bg-[#fff] backdrop-blur-lg  py-6 px-2 md:px-6 text-left 
               align-middle  transition-all border border-white"
                 >
                   <div
                     onClick={closeModal}
-                    className="absolute right-3 top-2 border-2 rounded-md border-[#fff] p-1 cursor-pointer"
+                    className="absolute right-3 top-2 border-2 rounded-md border-[#000] p-1 cursor-pointer"
                   >
                     <FaTimes
                       size={15}
                       style={{
-                        color: "#fff",
+                        color: "#000",
                       }}
                     />
                   </div>
                   {user?.status === "Pending" ? (
                     <div className="flex flex-col items-start space-y-2 py-5">
-                      <h2 className='font-medium text-center text-white dark:text-white  text-lg'>Thank you for your submission, please wait while we are verify your company information.</h2>
-      <h2 className=' text-center text-white dark:text-white  lg'>You will receive a text 
+                      <h2 className='font-medium text-center text-slate-800 dark:text-slate-800  text-lg'>Thank you for your submission, please wait while we are verify your company information.</h2>
+      <h2 className=' text-center text-slate-800 dark:text-slate-800  lg'>You will receive a text 
       message on {user.email} as soon as we review Your information.</h2>
                     </div>
                   ) : (
                     <div>
-                      <h1 className="text-white text-7xl">Accepted state</h1>
+                      <h1 className="text-slate-800 text-7xl">Accepted state</h1>
                     </div>
                   )}
                 </Dialog.Panel>
