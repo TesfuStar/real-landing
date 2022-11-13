@@ -39,7 +39,7 @@ const Contact = () => {
               <Textarea  variant={"flushed"} color={'gray.300'}></Textarea>
             </div>
             <button 
-             className="border-2 border-white rounded-sm p-1 px-10 font-semibold hover:font-semibold text-white
+             className="border-2 border-slate-800 rounded-sm p-1 px-10 font-semibold hover:font-semibold text-slate-800
              hover:bg-white text-lg cursor-pointer duration-500 hover:text-main-color "
             >Submit</button>
           </div>
