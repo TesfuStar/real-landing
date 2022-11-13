@@ -102,8 +102,8 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
     <>
       <div className="flex flex-col items-center space-y-2  w-full">
         <div className="w-full flex flex-col items-start space-y-1">
-          <div className="flex items-center     border-2 rounded-md border-gray-300 w-full">
-            <span className="border-r-2 border-gray-300 text-white  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
+          <div className="flex items-center     border rounded-md border-white w-full">
+            <span className="border-r-2 border-white text-white  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
               +251
             </span>
             <input
@@ -119,7 +119,7 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
         </div>
         {/* password */}
         <div className="w-full flex flex-col items-start space-y-1">
-          <div className="flex items-center     border-2 rounded-md border-gray-300 w-full">
+          <div className="flex items-center     border rounded-md border-white w-full">
             <input
               value={password}
               onChange={(event) => setPassword(event.target.value)}
@@ -136,9 +136,9 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
         px-2 items-center justify-center "
             >
               {showPassword ? (
-                <AiFillEye size={23} className="text-gray-400" />
+                <AiFillEye size={23} className="text-white" />
               ) : (
-                <AiFillEyeInvisible size={23} className="text-gray-400" />
+                <AiFillEyeInvisible size={23} className="text-white" />
               )}
             </button>
           </div>
@@ -147,7 +147,7 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
           disabled={loginMutation.isLoading}
           onClick={LoginHandler}
           className="w-full p-2 rounded-md flex items-center justify-center text-white font-medium
-              bg-gradient-to-r from-[#216fed] to-[#3a7fee] capitalize"
+              bg-white/20 backdrop-blur-md hover:bg-white/10 border border-white capitalize"
         >
           {loginMutation.isLoading ? (
             <ThreeDots
@@ -168,7 +168,7 @@ const LoginForm = ({ setIsSignIn, closeModal }) => {
           Don't have account ?
           <span
             onClick={() => setIsSignIn(false)}
-            className="text-[#216fed] cursor-pointer hover:opacity-80"
+            className="text-[#fff] cursor-pointer hover:opacity-80"
           >
             {" "}
             SIGN UP

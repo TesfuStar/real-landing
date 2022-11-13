@@ -3,10 +3,64 @@ import { useInView } from "react-intersection-observer";
 import { useEffect ,useRef as reactRef} from "react";
 import WEB from  "../../assets/WEB.svg";
 import "../style.css";
-
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useHomeContext } from "../../context/HomeContext";
+import { useAuth } from "../../context/auth";
 const HomePage = () => {
-    const {isOpen, setIsOpen} = useHomeContext()
+    const {
+      isOpen,
+      setIsOpen,
+      setIsInformationOpen,
+      setIsPendingOpen,
+      isPendingOpen,
+    } = useHomeContext()
+    const {token,user} = useAuth()
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    };
+    const profileData = useQuery(
+      ["profileDataApi"],
+      async () =>
+        await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}user/profile/app/${user._id}`,
+          {
+            headers,
+          }
+        ),
+      {
+        keepPreviousData: true,
+        refetchOnWindowFocus: false,
+        retry: false,
+        enabled: !!token,
+        onSuccess: (res) => {},
+      }
+    );
+    const handleClick = () => {
+      if(user){
+        if (profileData?.data?.data?.profile?.status == null) {
+          setIsInformationOpen(true);
+          return;
+        }
+        if (user?.hasCompany) {
+          window.open("https://realstate-dashboard.vercel.app/");
+          return;
+        }
+        if (profileData?.data?.data?.profile?.status === "Pending") {
+          setIsPendingOpen(true);
+          return;
+        }
+        if (profileData?.data?.data?.profile?.status === "Accepted") {
+          window.open('https://realstate-dashboard.vercel.app','_self')
+          return;
+        }
+        return
+      }
+  
+      setIsOpen(true);
+    };
     const homeRef =reactRef()
   const opacityVariants={
     hidden:{opacity:0},
@@ -57,7 +111,7 @@ const HomePage = () => {
             nextjs. Next.js, by default, provides support image and image
             optimization for your web app.
           </p>
-          <button onClick={()=>setIsOpen(true)}
+          <button onClick={handleClick}
           className="border-2 border-white rounded-sm p-2 px-10 font-semibold text-white
           hover:bg-white cursor-pointer duration-500 hover:text-main-color hover:font-medium">
             Join Us

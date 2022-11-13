@@ -10,7 +10,7 @@ import RegisterModal from './companents/Auth/RegisterModal'
 
 const Landing = () => {
   return (
-    <div className='bg-gradient-to-b from-[#090c11] to-[#101825] '>
+    <div className='bg-white'>
       <Navbar/>
        <HomePage />
         <Properties />

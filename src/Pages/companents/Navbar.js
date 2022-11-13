@@ -3,6 +3,8 @@ import { Link } from "react-scroll";
 import { FaBars } from "react-icons/fa";
 import { useHomeContext } from "../../context/HomeContext";
 import Sidebar from "./Sidebar";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useAuth } from "../../context/auth";
 const Navbar = () => {
   const {
@@ -17,10 +19,31 @@ const Navbar = () => {
   const toggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  const profileData = useQuery(
+    ["profileDataApi"],
+    async () =>
+      await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}user/profile/app/${user._id}`,
+        {
+          headers,
+        }
+      ),
+    {
+      keepPreviousData: true,
+      refetchOnWindowFocus: false,
+      retry: false,
+      enabled: !!token,
+      onSuccess: (res) => {},
+    }
+  );
   const handleClick = () => {
-    if (user) {
-      if (user?.status == null) {
+    if(user){
+      if (profileData?.data?.data?.profile?.status == null) {
         setIsInformationOpen(true);
         return;
       }
@@ -28,13 +51,18 @@ const Navbar = () => {
         window.open("https://realstate-dashboard.vercel.app/");
         return;
       }
-      if (user?.status === "Pending") {
+      if (profileData?.data?.data?.profile?.status === "Pending") {
         setIsPendingOpen(true);
         return;
       }
-    } else {
-      setIsOpen(true);
+      if (profileData?.data?.data?.profile?.status === "Accepted") {
+        window.open('https://realstate-dashboard.vercel.app','_self')
+        return;
+      }
+      return
     }
+
+    setIsOpen(true);
   };
   useEffect(() => {
     const hideMenu = () => {
@@ -49,10 +77,10 @@ const Navbar = () => {
   });
   return (
     <>
-      <header className="bg-[#0e1219]/10 p-5 fixed w-full backdrop-blur-2xl z-50">
+      <header className="bg-[#fff]/60 p-5 fixed w-full backdrop-blur-2xl z-50">
         <div className="max-w-6xl mx-auto flex items-center justify-between ">
           <div>
-            <h1 className="font-bold text-white">LOGO</h1>
+            <h1 className="font-bold text-black">LOGO</h1>
           </div>
           <div className="flex items-center space-x-5">
             <div className="hidden md:flex items-center space-x-5">
@@ -63,7 +91,7 @@ const Navbar = () => {
                 offset={-100}
                 duration={800}
                 delay={200}
-                className="text-white font-medium hover:text-[#216fed] cursor-pointer text-lg"
+                className="text-slate-800 font-medium hover:text-[#216fed] cursor-pointer text-lg"
               >
                 Home
               </Link>
@@ -74,7 +102,7 @@ const Navbar = () => {
                 offset={50}
                 duration={800}
                 delay={200}
-                className="text-white font-medium hover:text-[#216fed] cursor-pointer text-lg"
+                className="text-slate-800 font-medium hover:text-[#216fed] cursor-pointer text-lg"
               >
                 Products
               </Link>
@@ -85,7 +113,7 @@ const Navbar = () => {
                 offset={50}
                 duration={800}
                 delay={200}
-                className="text-white font-medium hover:text-[#216fed] cursor-pointer text-lg"
+                className="text-slate-800 font-medium hover:text-[#216fed] cursor-pointer text-lg"
               >
                 contact
               </Link>
@@ -94,16 +122,17 @@ const Navbar = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={handleClick}
-                className="border-2 border-white rounded-sm p-1 text-lg px-6 font-semibold text-white
-                    hover:bg-white cursor-pointer duration-500 hover:text-main-color hover:font-medium"
+                className="border border-slate-800 rounded-sm p-1 text-lg px-6 font-semibold text-slate-800
+                    hover:bg-white/20  cursor-pointer duration-500  hover:font-medium"
               >
                 Join Us
               </button>
               {user && token && (
                 <button
                   onClick={logout}
-                  className="hidden md:flex border-2 text-lg border-white bg-white rounded-sm p-1 px-5 font-bold text-main-color
-                    hover:bg-transparent cursor-pointer duration-500 hover:text-white hover:font-bold"
+                  className="hidden md:flex border text-lg border-white bg-slate-800
+                   rounded-sm p-1 px-5 font-bold text-white
+                    hover:bg-white/20 cursor-pointer duration-500 hover:text-slate-800 hover:font-bold"
                 >
                   Log Out
                 </button>

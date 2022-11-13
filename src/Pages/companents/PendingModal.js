@@ -29,7 +29,7 @@ const PendingModal = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-40" />
+            <div className="fixed inset-0 bg-white blur-2xl bg-opacity-5" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -45,7 +45,8 @@ const PendingModal = () => {
               >
                 <Dialog.Panel
                   className="w-full max-w-xl transform overflow-hidden 
-              rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2 md:px-6 text-left align-middle shadow-xl transition-all"
+              rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2 md:px-6 text-left 
+              align-middle  transition-all border border-white"
                 >
                   <div
                     onClick={closeModal}
@@ -61,7 +62,8 @@ const PendingModal = () => {
                   {user?.status === "Pending" ? (
                     <div className="flex flex-col items-start space-y-2 py-5">
                       <h2 className='font-medium text-center text-white dark:text-white  text-lg'>Thank you for your submission, please wait while we are verify your company information.</h2>
-      <h2 className=' text-center text-white dark:text-white  lg'>You will receive a text message on {user.phone} as soon as we review Your information.</h2>
+      <h2 className=' text-center text-white dark:text-white  lg'>You will receive a text 
+      message on {user.email} as soon as we review Your information.</h2>
                     </div>
                   ) : (
                     <div>

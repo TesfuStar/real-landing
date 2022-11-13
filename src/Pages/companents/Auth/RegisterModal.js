@@ -30,7 +30,7 @@ const RegisterModal = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-40" />
+            <div className="fixed inset-0 bg-white blur-2xl bg-opacity-5" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -45,7 +45,8 @@ const RegisterModal = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden 
-                rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2 md:px-6 text-left align-middle shadow-xl transition-all">
+                rounded-2xl bg-[#fff]/10 backdrop-blur-lg  py-6 px-2
+                 md:px-6 text-left align-middle border border-white transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg text-center pb-3 font-medium leading-6 text-gray-200"

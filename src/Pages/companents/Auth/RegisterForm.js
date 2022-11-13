@@ -134,8 +134,8 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
   return (
     <>
       <VStack>
-        <div className="flex items-center     border-2 rounded-md border-gray-300 w-full">
-          <span className="border-r-2 border-gray-300 text-white  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
+        <div className="flex items-center     border rounded-md border-white w-full">
+          <span className="border-r-2 border-white text-white  font-medium rounded-l-md h-full flex flex-grow text-center px-2 items-center justify-center ">
             +251
           </span>
           <input
@@ -155,7 +155,7 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
             value={formData.firstName}
             onChange={handleChange}
             className="input w-full flex-grow h-[42px] pl-2 text-white 
-              border-2 rounded-md border-gray-300   bg-transparent  focus:ring-0    focus:outline-none"
+              border rounded-md border-white   bg-transparent  focus:ring-0    focus:outline-none"
           />
           <input
             type="text"
@@ -164,7 +164,7 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
             value={formData.lastName}
             onChange={handleChange}
             className="input w-full flex-grow h-[42px] pl-2 text-white 
-              border-2 rounded-md border-gray-300   bg-transparent   focus:ring-0    focus:outline-none"
+              border rounded-md border-white   bg-transparent   focus:ring-0    focus:outline-none"
           />
         </div>
 
@@ -175,9 +175,9 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
           value={formData.email}
           onChange={handleChange}
           className="input w-full flex-grow h-[42px] pl-2 text-white 
-              border-2 rounded-md border-gray-300   bg-transparent   focus:ring-0    focus:outline-none"
+              border rounded-md border-white   bg-transparent   focus:ring-0    focus:outline-none"
         />
-        <div className="flex items-center     border-2 rounded-md border-gray-300 w-full">
+        <div className="flex items-center     border rounded-md border-white w-full">
             <input
                 type={showPassword ? "text" : "password"}
                 placeholder="password"
@@ -194,14 +194,14 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
         px-2 items-center justify-center "
             >
               {showPassword ? (
-                <AiFillEye size={23} className="text-gray-400" />
+                <AiFillEye size={23} className="text-white" />
               ) : (
-                <AiFillEyeInvisible size={23} className="text-gray-400" />
+                <AiFillEyeInvisible size={23} className="text-white" />
               )}
             </button>
           </div>
           {/* confirm */}
-          <div className="flex items-center     border-2 rounded-md border-gray-300 w-full">
+          <div className="flex items-center     border rounded-md border-white w-full">
             <input
               type={showConfirmPassword ? "text" : "password"}
               placeholder="confirm password"
@@ -218,55 +218,17 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
         px-2 items-center justify-center "
             >
               {showConfirmPassword ? (
-                <AiFillEye size={23} className="text-gray-400" />
+                <AiFillEye size={23} className="text-white" />
               ) : (
-                <AiFillEyeInvisible size={23} className="text-gray-400" />
+                <AiFillEyeInvisible size={23} className="text-white" />
               )}
             </button>
           </div>
-        {/* <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={!showPassword ? "text" : "password"}
-            placeholder="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleShowPassword}>
-              {showPassword ? (
-                <AiFillEyeInvisible size={22} color="#0891b2" />
-              ) : (
-                <AiFillEye size={22} color="#0891b2" />
-              )}
-            </Button>
-          </InputRightElement>
-        </InputGroup> */}
-        {/* <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={!showConfirmPassword ? "text" : "password"}
-            placeholder="confirm password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleShowConfirmPassword}>
-              {showConfirmPassword ? (
-                <AiFillEyeInvisible size={22} color="#0891b2" />
-              ) : (
-                <AiFillEye size={22} color="#0891b2" />
-              )}
-            </Button>
-          </InputRightElement>
-        </InputGroup> */}
         <button
           onClick={RegisterHandler}
           className="w-full p-2 rounded-md flex hover:opacity-80 items-center 
              justify-center text-white font-medium
-              bg-gradient-to-r from-[#216fed] to-[#3a7fee] capitalize"
+             bg-white/20 backdrop-blur-md hover:bg-white/10 border border-white capitalize"
         >
           {registerMutation.isLoading ? (
             <ThreeDots
@@ -287,7 +249,7 @@ const RegisterForm = ({ setIsSignIn, closeModal }) => {
           Already have account ?
           <span
             onClick={() => setIsSignIn(true)}
-            className="text-[#216fed] 
+            className="text-[#fff] 
                cursor-pointer hover:opacity-80"
           >
             {" "}
